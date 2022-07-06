@@ -1,0 +1,21 @@
+220706
+
+* Inability to connect vscode to target via remote-ssh
+Problem is described in
+https://github.com/microsoft/vscode-docs/issues/3210
+Solution:
+(m+)e(f+)'s reply:
+In short, the linux target doesn't interpret paths with \ right, so you need to
+make a config file in a windows path but with / as a separator (AOTR:
+C:/Users/cosmin_ns/.ssh/config ) containing something like:
+Host rpi.local
+  HostName rpi.local
+  User pi
+
+and aditionally:
+  IdentityFile C:/Users/johndoe/.ssh/id_rsa
+
+just in case you configured public-private key authentication via ssh with the
+target as explained in:
+https://www.geekyhacker.com/2021/02/15/configure-ssh-key-based-authentication-on-raspberry-pi/
+AOTR connection is via password (including in vscode)
