@@ -36,7 +36,7 @@ int main (int argc, char *argv[])
    int rc;
    int i;
 
-   for(i=1; i <= NUM_THREADS; i++)
+   for(i=0; i < NUM_THREADS; i++)
    {
        threadParams[i].threadIdx=i;
 
